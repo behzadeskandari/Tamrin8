@@ -8,7 +8,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
         {
             ///soal2 
             
-            StringCompareLambda();
+            //StringCompareLambda();
 
 
 
@@ -17,7 +17,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
             //ListOfMovies();
 
             ///Soal 1
-            ///RunOddNumbers();
+            RunOddNumbers();
 
         }
 
@@ -94,10 +94,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
             List<int> numbers = new List<int>();
             int j = 0;
 
-            for (int i = 0; i < 100; i++)
-            {
-                numbers.Add(i);
-            }
+            
+            numbers.AddRange(Enumerable.Range(0, 100));
+            
             
             List<int> oddNumbers = numbers.FindAll(x => x % 2 != 0);
 
