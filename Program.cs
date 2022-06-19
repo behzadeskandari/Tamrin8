@@ -7,7 +7,9 @@ namespace MyApp // Note: actual namespace depends on the project name.
         static void Main(string[] args)
         {
             ///soal2 
+            
             StringCompareLambda();
+
 
 
 
@@ -28,27 +30,19 @@ namespace MyApp // Note: actual namespace depends on the project name.
             string FirstWord = Console.ReadLine();
 
             Console.WriteLine("Enter The Second Word");
-            String SeconWord = Console.ReadLine();
+            string SeconWord = Console.ReadLine();
 
-            FirstWord.ToList().ForEach(p =>
-            {
-                SeconWord.ToList().ForEach(j =>
-                {
-                    int answerHolder = p.CompareTo(j);
-                    if (answerHolder == 0)
-                    {
-                        Console.WriteLine("2");
-                    }
-                    else if (answerHolder == 1)
-                    {
-                        Console.WriteLine("0");
-                    }
-                    else if (answerHolder == -1)
-                    {
-                        Console.WriteLine("0");
-                    }
-                });
-            });
+
+            var ValueHolder = FirstWord.ToList().Intersect(SeconWord.ToList()).ToList();
+            
+            var ValueHolderSecond = FirstWord.ToList().Except(SeconWord.ToList()).ToList();
+            
+
+            ValueHolder.ForEach(x => Console.WriteLine("2"));
+
+            ValueHolderSecond.ForEach(x => Console.WriteLine("0"));
+
+           
         }
 
         /// <summary>
@@ -77,9 +71,6 @@ namespace MyApp // Note: actual namespace depends on the project name.
                 new Movie(){ Id=2, Name=" : On Stranger Tides"},
             };
 
-
-
-
             var innerJoin = listOne.Join(// outer sequence 
                       listTwo,  // inner sequence 
                       movie => movie.Id,    // outerKeySelector
@@ -90,9 +81,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
                           movie2Id = movie2.Id,
                           Name = movie.Name,
                           StandardName = movie.Name + movie2.Name
-                      }).Where(x => x.movieId == x.movie2Id);
-
-            
+                      }).Where(x => x.movieId == x.movie2Id);            
 
             innerJoin.ToList().ForEach(p => Console.WriteLine(p.StandardName, "Name"));
         }
@@ -103,6 +92,7 @@ namespace MyApp // Note: actual namespace depends on the project name.
         private static void RunOddNumbers()
         {
             List<int> numbers = new List<int>();
+            int j = 0;
 
             for (int i = 0; i < 100; i++)
             {
