@@ -92,11 +92,8 @@ namespace MyApp // Note: actual namespace depends on the project name.
         private static void RunOddNumbers()
         {
             List<int> numbers = new List<int>();
-            int j = 0;
-
-            
+           
             numbers.AddRange(Enumerable.Range(0, 100));
-            
             
             List<int> oddNumbers = numbers.FindAll(x => x % 2 != 0);
 
